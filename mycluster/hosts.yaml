@@ -1,0 +1,41 @@
+all:
+  hosts:
+    node1:
+      ansible_host: 54.169.49.4
+      ip: 54.169.49.4
+      access_ip: 54.169.49.4
+      ansible_user: ubuntu
+      ansible_ssh_private_key_file: /home/wush/playground/terraform-aws/kocak.pem
+    node2:
+      ansible_host: 54.169.202.19
+      ip: 54.169.202.19
+      access_ip: 54.169.202.19
+      ansible_user: ubuntu
+      ansible_ssh_private_key_file: /home/wush/playground/terraform-aws/kocak.pem
+    node3:
+      ansible_host: 18.139.217.227
+      ip: 18.139.217.227
+      access_ip: 18.139.217.227
+      ansible_user: ubuntu
+      ansible_ssh_private_key_file: /home/wush/playground/terraform-aws/kocak.pem
+  children:
+    kube_control_plane:
+      hosts:
+        node1:
+        node2:
+    kube_node:
+      hosts:
+        node1:
+        node2:
+        node3:
+    etcd:
+      hosts:
+        node1:
+        node2:
+        node3:
+    k8s_cluster:
+      children:
+        kube_control_plane:
+        kube_node:
+    calico_rr:
+      hosts: {}
