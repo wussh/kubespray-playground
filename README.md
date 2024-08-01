@@ -96,4 +96,4 @@ ansible-playbook -i inventory/mycluster/hosts.yaml --become --become-user=root c
 
 ---
 
-This README provides a structured and detailed guide to setting up a Kubernetes cluster using Kubespray and Ansible. Make sure to replace the placeholder paths and IP addresses with your actual values.
+This README provides a structured and detailed guide to setting up a Kubernetes cluster using Kubespray and Ansible. Make sure to replace the placeholder paths and IP addresses with your actual values.# kubespray-playground
