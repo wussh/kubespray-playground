@@ -85,7 +85,11 @@ all:
 Run the Ansible playbook to deploy the cluster:
 
 ```bash
-ansible-playbook -i inventory/mycluster/hosts.yaml --become --become-user=root cluster.yml
+ansible-playbook -i inventory/mycluster/hosts.yaml --become --become-user=root -u ubuntu cluster.yml
+```
+If your SSH key is not the default one (~/.ssh/id_rsa), specify it using --private-key:
+```
+ansible-playbook -i inventory/mycluster/hosts.yaml --become --become-user=root -u ubuntu --private-key=~/.ssh/your_private_key cluster.yml
 ```
 
 ## Additional Information
